@@ -14,7 +14,7 @@ export const PublicRoute = (): JSX.Element => {
           <Link id="brand-link" ariaLabel="Go to Idyll Regnskap AS home" href="/" target="_self">
             <img
               className="site-header__logo"
-              src="/image0-header-sharp.png"
+              src={`${import.meta.env.BASE_URL}image0-header-sharp.png`}
               alt="Idyll Regnskap AS"
             />
           </Link>
@@ -75,7 +75,7 @@ export const PublicRoute = (): JSX.Element => {
           <div className="site-footer__brand">
             <img
               className="site-footer__logo"
-              src="/image1-footer-sharp.png"
+              src={`${import.meta.env.BASE_URL}image1-footer-sharp.png`}
               alt="Idyll Regnskap AS"
             />
           </div>

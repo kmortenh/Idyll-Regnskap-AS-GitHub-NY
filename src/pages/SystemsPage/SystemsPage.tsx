@@ -27,7 +27,7 @@ const systems = [
   {
     name: "Fiken",
     url: "https://www.fiken.no/",
-    logoUrl: "/fiken-logo.svg",
+    logoUrl: `${import.meta.env.BASE_URL}fiken-logo.svg`,
     description: "Et enkelt og brukervennlig system for regnskap og fakturering.",
   },
 ];
