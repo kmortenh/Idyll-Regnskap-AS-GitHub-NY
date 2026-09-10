@@ -1,0 +1,219 @@
+.prices-page {
+  padding: 5rem 0 7rem;
+}
+
+.prices-page__intro {
+  max-width: 45rem;
+  margin-bottom: 4rem;
+}
+
+.prices-page__eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--color-accent-dark);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.prices-page h1,
+.prices-page h2,
+.prices-page h3 {
+  color: var(--color-ink);
+  font-family: var(--font-family-display);
+  line-height: 1.05;
+}
+
+.prices-page h1 {
+  max-width: 34rem;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.prices-page__intro > p:last-child {
+  max-width: 36rem;
+  margin-top: 1.5rem;
+  color: var(--color-gray-mid);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.prices-page__base {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: end;
+  padding: 2.5rem;
+  color: var(--color-white);
+  background: var(--color-accent-dark);
+  border-top: 0.35rem solid var(--color-accent);
+}
+
+.prices-page__base h2 {
+  color: var(--color-white);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.prices-page__base p:not(.prices-page__eyebrow) {
+  max-width: 34rem;
+  margin-top: 1rem;
+  color: #c6c6c6;
+  line-height: 1.55;
+}
+
+.prices-page__base .prices-page__eyebrow,
+.prices-page__cta .prices-page__eyebrow {
+  color: var(--color-highlight);
+}
+
+.prices-page__base-price {
+  display: flex;
+  flex-direction: column;
+  min-width: 12rem;
+  text-align: right;
+}
+
+.prices-page__base-price strong {
+  color: var(--color-highlight);
+  font-size: 2.4rem;
+  line-height: 1.1;
+}
+
+.prices-page__base-price span {
+  color: #a7a7a7;
+  font-size: 0.85rem;
+}
+
+.prices-page__annual {
+  margin-top: 1rem;
+}
+
+.prices-page__calculator {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(22rem, 1.2fr);
+  gap: 3rem;
+  align-items: center;
+  margin-top: 5rem;
+  padding: 2.5rem 0 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.prices-page__calculator h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.prices-page__calculator > div:first-child > p:last-child {
+  margin-top: 1rem;
+  color: var(--color-gray-mid);
+  line-height: 1.55;
+}
+
+.prices-page__calculator .prices-page__eyebrow {
+  color: var(--color-accent-dark);
+}
+
+.prices-page__page-eyebrow {
+  color: var(--color-highlight);
+}
+
+.prices-page__calculator-preview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, 0.7fr);
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-primary);
+  box-shadow: 0 1rem 2rem rgb(20 20 20 / 8%);
+}
+
+.prices-page__preview-form,
+.prices-page__preview-summary {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.prices-page__preview-form span {
+  min-height: 2.5rem;
+  padding: 0.75rem;
+  color: var(--color-gray-mid);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  font-size: 0.75rem;
+}
+
+.prices-page__preview-summary {
+  align-content: center;
+  padding: 1.25rem;
+  color: var(--color-white);
+  background: var(--color-accent-dark);
+}
+
+.prices-page__preview-summary span,
+.prices-page__preview-summary small {
+  color: #c6c6c6;
+  font-size: 0.75rem;
+}
+
+.prices-page__preview-summary strong {
+  color: var(--color-highlight);
+  font-size: 1.45rem;
+}
+
+.prices-page__cta h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.prices-page__cta > div > p:last-child {
+  margin-top: 0.5rem;
+  color: var(--color-gray-mid);
+  line-height: 1.55;
+}
+
+.prices-page__cta {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.5rem;
+  background: var(--color-accent-soft);
+}
+
+.prices-page__cta-link {
+  padding: 0.85rem 1.25rem;
+  color: var(--color-white);
+  background: var(--color-accent);
+  border-radius: 0.25rem;
+  font-weight: 700;
+}
+
+.prices-page__cta-link:hover {
+  background: var(--color-accent-dark);
+}
+
+@media (max-width: 48rem) {
+  .prices-page {
+    padding-top: 3rem;
+  }
+
+  .prices-page__base,
+  .prices-page__cta {
+    align-items: start;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .prices-page__base-price {
+    text-align: left;
+  }
+
+  .prices-page__calculator {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+  }
+
+  .prices-page__calculator-preview {
+    grid-template-columns: 1fr;
+  }
+
+}
