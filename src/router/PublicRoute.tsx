@@ -83,7 +83,7 @@ export const PublicRoute = (): JSX.Element => {
           <div className="site-footer__contact" aria-label="Kontaktinformasjon">
             <div className="site-footer__item">
               <span className="site-footer__icon" aria-hidden="true">
-                &#8962;
+                &#127970;
               </span>
               <div>
                 <span className="site-footer__label">Adresse</span>
@@ -92,7 +92,7 @@ export const PublicRoute = (): JSX.Element => {
             </div>
             <a className="site-footer__item" href="tel:+4748304335">
               <span className="site-footer__icon" aria-hidden="true">
-                &#9742;
+                &#128222;
               </span>
               <div>
                 <span className="site-footer__label">Telefon</span>
@@ -101,7 +101,7 @@ export const PublicRoute = (): JSX.Element => {
             </a>
             <a className="site-footer__item" href="mailto:post@idyllregnskap.no">
               <span className="site-footer__icon" aria-hidden="true">
-                &#9993;
+                &#128231;
               </span>
               <div>
                 <span className="site-footer__label">E-post</span>

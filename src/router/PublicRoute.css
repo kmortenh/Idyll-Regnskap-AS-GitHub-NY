@@ -164,7 +164,7 @@ a.site-footer__item:focus-visible {
   color: #d0d0d0;
   background: var(--color-accent);
   border-radius: 50%;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 700;
 }
