@@ -167,6 +167,11 @@ a.site-footer__item:focus-visible {
   font-family: "Segoe UI Emoji", "Apple Color Emoji", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1;
+}
+
+.site-footer__icon--org {
+  font-family: Arial, sans-serif;
 }
 
 .site-footer__item div {

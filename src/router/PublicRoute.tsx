@@ -109,7 +109,7 @@ export const PublicRoute = (): JSX.Element => {
               </div>
             </a>
             <div className="site-footer__item">
-              <span className="site-footer__icon" aria-hidden="true">
+              <span className="site-footer__icon site-footer__icon--org" aria-hidden="true">
                 #
               </span>
               <div>
