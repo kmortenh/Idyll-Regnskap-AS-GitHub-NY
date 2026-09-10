@@ -161,9 +161,10 @@ a.site-footer__item:focus-visible {
   height: 1.8rem;
   flex: 0 0 auto;
   place-items: center;
-  color: var(--color-black);
+  color: #d0d0d0;
   background: var(--color-accent);
   border-radius: 50%;
+  font-family: Arial, sans-serif;
   font-size: 1rem;
   font-weight: 700;
 }
