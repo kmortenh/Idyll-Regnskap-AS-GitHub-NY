@@ -104,11 +104,19 @@ const ContactPage = (): JSX.Element => {
         message?: string;
         toString?: () => string;
       };
+      let serializedError = "";
+
+      try {
+        serializedError = JSON.stringify(error);
+      } catch {
+        serializedError = "";
+      }
+
       const errorDetails = [
         emailJsError.status,
         emailJsError.text ?? emailJsError.message,
         !emailJsError.status && !emailJsError.text && !emailJsError.message
-          ? emailJsError.toString?.()
+          ? serializedError || emailJsError.toString?.()
           : undefined,
       ]
         .filter(Boolean)
@@ -116,9 +124,12 @@ const ContactPage = (): JSX.Element => {
 
       console.error("EmailJS submit failed:", error);
 
-      setSubmitError(
-        `Meldingen kunne ikke sendes akkurat nå${errorDetails ? ` (${errorDetails})` : ""}. Kontroller EmailJS-templaten og prøv igjen.`,
-      );
+      const submitErrorMessage =
+        emailJsError.status === 0
+          ? "Får ikke kontakt med EmailJS fra nettleseren. Slå av eventuelle adblockere/anti-tracking-utvidelser, eller prøv et privat vindu."
+          : "Meldingen kunne ikke sendes akkurat nå. Kontroller EmailJS-templaten og prøv igjen.";
+
+      setSubmitError(`${submitErrorMessage}${errorDetails ? ` (${errorDetails})` : ""}`);
     } finally {
       setIsSubmitting(false);
     }
