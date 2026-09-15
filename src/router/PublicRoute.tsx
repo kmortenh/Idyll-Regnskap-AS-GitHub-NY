@@ -87,7 +87,7 @@ export const PublicRoute = (): JSX.Element => {
               </span>
               <div>
                 <span className="site-footer__label">Adresse</span>
-                <span>Tveide Næringspark 1, Birkeland</span>
+                <span>Tveide Næringspark 1, 4760 Birkeland</span>
               </div>
             </div>
             <a className="site-footer__item" href="tel:+4748304335">

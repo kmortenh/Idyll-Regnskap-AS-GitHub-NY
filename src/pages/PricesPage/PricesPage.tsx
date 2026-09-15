@@ -65,26 +65,6 @@ const PricesPage = (): JSX.Element => {
         </div>
       </section>
 
-      <section className="prices-page__calculator" aria-labelledby="calculator-title">
-        <div>
-          <p className="prices-page__eyebrow">Fastpris</p>
-          <h2 id="calculator-title">Fastpriskalkulator</h2>
-          <p>Kommer snart. Under utviklling. Ta kontakt for tilbud.</p>
-        </div>
-        <div className="prices-page__calculator-preview" aria-label="Forhåndsvisning av fastpriskalkulator">
-          <div className="prices-page__preview-form">
-            <span>MVA-registrert</span>
-            <span>Antall ansatte</span>
-            <span>Fakturaer per måned</span>
-            <span>Bankposter per måned</span>
-          </div>
-          <div className="prices-page__preview-summary">
-            <span>Estimert månedspris</span>
-            <strong>Fast pris</strong>
-            <small>etter avtale</small>
-          </div>
-        </div>
-      </section>
     </main>
   );
 };
