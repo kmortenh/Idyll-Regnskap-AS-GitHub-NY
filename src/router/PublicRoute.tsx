@@ -127,8 +127,7 @@ export const PublicRoute = (): JSX.Element => {
           </div>
         </div>
         <div className="site-footer__bottom">
-          <span>&copy; 2026 Idyll Regnskap AS. Alle rettigheter forbeholdt.</span>
-          <span>Trygghet. Kontroll. Frihet.</span>
+          <span className="site-footer__tagline">Trygghet. Kontroll. Frihet.</span>
           <Link
             id="footer-privacy"
             ariaLabel="Les personvern- og cookie-erklæringen"
@@ -137,6 +136,9 @@ export const PublicRoute = (): JSX.Element => {
           >
             Personvern og cookies
           </Link>
+          <span className="site-footer__copyright">
+            &copy; 2026 Idyll Regnskap AS. Alle rettigheter forbeholdt.
+          </span>
         </div>
       </footer>
     </>
