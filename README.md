@@ -44,6 +44,7 @@ and variables → Actions**:
 - `VITE_EMAILJS_SERVICE_ID`
 - `VITE_EMAILJS_TEMPLATE_ID`
 - `VITE_EMAILJS_PUBLIC_KEY`
+- `VITE_GA_MEASUREMENT_ID`
 
 Workflowen bruker kun nødvendige rettigheter: lesetilgang til innhold,
 skrivetilgang til Pages og OIDC-token for deploy. Ikke legg passord, API-nøkler
