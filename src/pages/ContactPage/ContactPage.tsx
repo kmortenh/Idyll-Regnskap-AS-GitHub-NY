@@ -63,7 +63,10 @@ const ContactPage = (): JSX.Element => {
     const form = event.currentTarget;
     const formData = new FormData(form);
     const name = String(formData.get("name") ?? "");
+    const company = String(formData.get("company") ?? "");
+    const email = String(formData.get("email") ?? "");
     const phone = String(formData.get("phone") ?? "");
+    const message = String(formData.get("message") ?? "");
     setSubmitError("");
 
     if (!validateName(name)) {
@@ -94,7 +97,19 @@ const ContactPage = (): JSX.Element => {
     try {
       setIsSubmitting(true);
       emailjs.init(String(publicKey));
-      await emailjs.sendForm(serviceId, templateId, form);
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name,
+          company,
+          email,
+          phone,
+          message,
+          reply_to: email,
+        },
+        String(publicKey),
+      );
       setSubmissionMethod("emailjs");
       setIsSubmitted(true);
     } catch (error) {
