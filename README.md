@@ -38,6 +38,13 @@ som `https://bruker.github.io/Prosjektnavn/`.
 2. GitHub Actions kjører workflowen `Deploy to GitHub Pages`.
 3. Velg **GitHub Actions** som kilde under repositoryets Pages-innstillinger.
 
+For kontaktskjemaet må disse repository-secrets opprettes under **Settings → Secrets
+and variables → Actions**:
+
+- `VITE_EMAILJS_SERVICE_ID`
+- `VITE_EMAILJS_TEMPLATE_ID`
+- `VITE_EMAILJS_PUBLIC_KEY`
+
 Workflowen bruker kun nødvendige rettigheter: lesetilgang til innhold,
 skrivetilgang til Pages og OIDC-token for deploy. Ikke legg passord, API-nøkler
 eller andre hemmeligheter i frontend-kode eller `VITE_`-variabler; Vite bygger

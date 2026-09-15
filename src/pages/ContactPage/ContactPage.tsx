@@ -98,9 +98,26 @@ const ContactPage = (): JSX.Element => {
       setSubmissionMethod("emailjs");
       setIsSubmitted(true);
     } catch (error) {
+      const emailJsError = error as {
+        status?: number;
+        text?: string;
+        message?: string;
+        toString?: () => string;
+      };
+      const errorDetails = [
+        emailJsError.status,
+        emailJsError.text ?? emailJsError.message,
+        !emailJsError.status && !emailJsError.text && !emailJsError.message
+          ? emailJsError.toString?.()
+          : undefined,
+      ]
+        .filter(Boolean)
+        .join(": ");
+
       console.error("EmailJS submit failed:", error);
+
       setSubmitError(
-        "Meldingen kunne ikke sendes akkurat nå. Kontroller EmailJS-templaten og prøv igjen.",
+        `Meldingen kunne ikke sendes akkurat nå${errorDetails ? ` (${errorDetails})` : ""}. Kontroller EmailJS-templaten og prøv igjen.`,
       );
     } finally {
       setIsSubmitting(false);
