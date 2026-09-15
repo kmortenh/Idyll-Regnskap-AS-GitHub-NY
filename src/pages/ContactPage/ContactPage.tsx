@@ -9,6 +9,8 @@ import "@/pages/ContactPage/ContactPage.css";
 const ContactPage = (): JSX.Element => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionMethod, setSubmissionMethod] = useState<"emailjs" | null>(null);
+  const [submitError, setSubmitError] = useState("");
   const [nameError, setNameError] = useState("");
   const [phoneError, setPhoneError] = useState("");
 
@@ -56,34 +58,13 @@ const ContactPage = (): JSX.Element => {
     return true;
   };
 
-  const sendViaEmailClient = (formData: FormData): void => {
-    const name = String(formData.get("name") ?? "");
-    const company = String(formData.get("company") ?? "");
-    const email = String(formData.get("email") ?? "");
-    const phone = String(formData.get("phone") ?? "");
-    const message = String(formData.get("message") ?? "");
-    const body = [
-      `Navn: ${name}`,
-      `Bedrift: ${company}`,
-      `E-post: ${email}`,
-      `Telefon: ${phone || "Ikke oppgitt"}`,
-      "",
-      "Melding:",
-      message,
-    ].join("\n");
-
-    window.location.href = `mailto:post@idyllregnskap.no?subject=${encodeURIComponent(
-      "Forespørsel fra kontaktskjema",
-    )}&body=${encodeURIComponent(body)}`;
-    setIsSubmitted(true);
-  };
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
     const name = String(formData.get("name") ?? "");
     const phone = String(formData.get("phone") ?? "");
+    setSubmitError("");
 
     if (!validateName(name)) {
       const nameInput = form.querySelector<HTMLInputElement>("#name");
@@ -104,7 +85,9 @@ const ContactPage = (): JSX.Element => {
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     if (!serviceId || !templateId || !publicKey) {
-      sendViaEmailClient(formData);
+      setSubmitError(
+        "Kontaktskjemaet er ikke ferdig konfigurert. Kontroller EmailJS-innstillingene og prøv igjen.",
+      );
       return;
     }
 
@@ -112,10 +95,13 @@ const ContactPage = (): JSX.Element => {
       setIsSubmitting(true);
       emailjs.init(String(publicKey));
       await emailjs.sendForm(serviceId, templateId, form);
+      setSubmissionMethod("emailjs");
       setIsSubmitted(true);
     } catch (error) {
       console.error("EmailJS submit failed:", error);
-      sendViaEmailClient(formData);
+      setSubmitError(
+        "Meldingen kunne ikke sendes akkurat nå. Kontroller EmailJS-templaten og prøv igjen.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -143,14 +129,21 @@ const ContactPage = (): JSX.Element => {
 
           {isSubmitted ? (
             <div className="contact-page__success" role="status">
-              <h2>E-postklienten er åpnet</h2>
-              <p>Kontroller innholdet og trykk send for å sende meldingen til oss.</p>
+              <h2>{submissionMethod === "emailjs" ? "Meldingen er sendt" : "E-postklienten er åpnet"}</h2>
+              <p>
+                Takk for henvendelsen. Vi tar kontakt så snart som mulig.
+              </p>
               <button type="button" onClick={() => setIsSubmitted(false)}>
                 Send en ny melding
               </button>
             </div>
           ) : (
             <form className="contact-page__form" onSubmit={handleSubmit}>
+              {submitError ? (
+                <p className="contact-page__submit-error" role="alert">
+                  {submitError}
+                </p>
+              ) : null}
               <div className="contact-page__field-row">
                 <label className="contact-page__field" htmlFor="name">
                   Navn
