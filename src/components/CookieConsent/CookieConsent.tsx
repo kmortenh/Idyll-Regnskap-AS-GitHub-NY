@@ -15,8 +15,8 @@ const loadAnalytics = (): void => {
   }
 
   window.dataLayer = window.dataLayer || [];
-  window.gtag = (...args: unknown[]) => {
-    window.dataLayer?.push(args);
+  window.gtag = function () {
+    window.dataLayer?.push(arguments);
   };
   window.gtag("js", new Date());
 
@@ -25,7 +25,12 @@ const loadAnalytics = (): void => {
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsMeasurementId}`;
   script.onload = () => {
-    window.gtag("config", analyticsMeasurementId, { send_page_view: true });
+    window.gtag("config", analyticsMeasurementId, { send_page_view: false });
+    window.gtag("event", "page_view", {
+      send_to: analyticsMeasurementId,
+      page_title: document.title,
+      page_location: window.location.href,
+    });
   };
   document.head.appendChild(script);
 };
