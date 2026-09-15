@@ -197,7 +197,6 @@ const ContactPage = (): JSX.Element => {
                     autoComplete="name"
                     minLength={2}
                     maxLength={80}
-                    pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+"
                     required
                     aria-invalid={Boolean(nameError)}
                     aria-describedby={nameError ? "name-error" : undefined}
