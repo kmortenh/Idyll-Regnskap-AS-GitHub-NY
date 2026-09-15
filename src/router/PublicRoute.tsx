@@ -122,6 +122,14 @@ export const PublicRoute = (): JSX.Element => {
         <div className="site-footer__bottom">
           <span>&copy; 2026 Idyll Regnskap AS. Alle rettigheter forbeholdt.</span>
           <span>Trygghet. Kontroll. Frihet.</span>
+          <Link
+            id="footer-privacy"
+            ariaLabel="Les personvern- og cookie-erklæringen"
+            href="/personvern"
+            target="_self"
+          >
+            Personvern og cookies
+          </Link>
         </div>
       </footer>
     </>

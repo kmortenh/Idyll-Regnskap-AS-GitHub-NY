@@ -10,6 +10,7 @@ import ServicesPage from "@/pages/ServicesPage/ServicesPage";
 import PricesPage from "@/pages/PricesPage/PricesPage";
 import SystemsPage from "@/pages/SystemsPage/SystemsPage";
 import AboutPage from "@/pages/AboutPage/AboutPage";
+import PrivacyPage from "@/pages/PrivacyPage/PrivacyPage";
 
 export const TemplateRouter = (): JSX.Element => {
   return (
@@ -22,6 +23,7 @@ export const TemplateRouter = (): JSX.Element => {
         <Route path="/priser" element={<PricesPage></PricesPage>}></Route>
         <Route path="/systemer" element={<SystemsPage></SystemsPage>}></Route>
         <Route path="/om-oss" element={<AboutPage></AboutPage>}></Route>
+        <Route path="/personvern" element={<PrivacyPage></PrivacyPage>}></Route>
       </Route>
 
       <Route path="*" element={<Navigate to="/"></Navigate>}></Route>

@@ -113,6 +113,21 @@
   outline-offset: 2px;
 }
 
+.contact-page__field input[aria-invalid="true"] {
+  border-color: #b42318;
+  background: #fff5f4;
+}
+
+.contact-page__field input[aria-invalid="true"]:focus {
+  outline-color: #b42318;
+}
+
+.contact-page__error-message {
+  color: #b42318;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
 .contact-page__submit,
 .contact-page__success button {
   justify-self: start;

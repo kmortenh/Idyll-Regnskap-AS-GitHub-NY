@@ -3,6 +3,7 @@ import { HashRouter } from "react-router";
 import type { JSX } from "react";
 
 import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
+import CookieConsent from "@/components/CookieConsent/CookieConsent";
 
 import { TemplateRouter } from "@/router/TemplateRouter";
 
@@ -13,6 +14,7 @@ function App(): JSX.Element {
       <HashRouter>
         <TemplateRouter></TemplateRouter>
       </HashRouter>
+      <CookieConsent />
     </ErrorBoundary>
   );
 }
