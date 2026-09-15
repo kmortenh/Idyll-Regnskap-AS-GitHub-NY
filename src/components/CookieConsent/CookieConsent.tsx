@@ -14,18 +14,20 @@ const loadAnalytics = (): void => {
     return;
   }
 
-  const script = document.createElement("script");
-  script.id = "google-analytics-script";
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsMeasurementId}`;
-  document.head.appendChild(script);
-
   window.dataLayer = window.dataLayer || [];
   window.gtag = (...args: unknown[]) => {
     window.dataLayer?.push(args);
   };
   window.gtag("js", new Date());
-  window.gtag("config", analyticsMeasurementId);
+
+  const script = document.createElement("script");
+  script.id = "google-analytics-script";
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsMeasurementId}`;
+  script.onload = () => {
+    window.gtag("config", analyticsMeasurementId, { send_page_view: true });
+  };
+  document.head.appendChild(script);
 };
 
 const CookieConsent = (): JSX.Element => {
