@@ -1,4 +1,5 @@
-import { Outlet } from "react-router";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router";
 
 import type { JSX } from "react";
 
@@ -7,6 +8,12 @@ import Link from "@/components/Link/Link";
 import "@/router/PublicRoute.css";
 
 export const PublicRoute = (): JSX.Element => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <>
       <header className="site-header">
